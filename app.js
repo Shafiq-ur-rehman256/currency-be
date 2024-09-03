@@ -3,7 +3,7 @@ const morgan =  require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { conectDatabase } = require('./src/database');
-require('dotenv').config();
+// require('dotenv').config();
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.use('**', (req,res)=>{
     })
 })
 
-const PORT = 3000 || process.env.PORT;
+const PORT = 3001 || process.env.PORT;
 
 app.listen(PORT, ()=>{
     console.log(`App is running on port: ${PORT}`);
