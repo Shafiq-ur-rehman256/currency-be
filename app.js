@@ -15,7 +15,7 @@ app.use(cors());
 app.use(morgan('tiny'));
 
 app.get('/',(req, res)=>{
-    return res.send("Express on Vercel");
+    return res.send("Express currency convertor app");
 })
 
 
