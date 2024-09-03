@@ -15,10 +15,7 @@ app.use(cors());
 app.use(morgan('tiny'));
 
 app.get('/',(req, res)=>{
-    return res.send({
-        Error: false,
-        message: 'Health 100%'
-    })
+    return res.send("Express on Vercel");
 })
 
 
