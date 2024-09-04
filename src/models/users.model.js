@@ -12,7 +12,11 @@ const usersSchema = new schema({
         type: String,
         trim: true,
         minlength: 6
+    },
+    auth_token: {
+        type: String,
+        trim: true,
     }
-},{timeseries: true})
+},{timestamps: true})
 
-exports.userModel = mongoose.model('users', userSchema);
+exports.usersModel = mongoose.model('users', usersSchema);

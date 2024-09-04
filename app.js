@@ -1,5 +1,5 @@
 const express = require('express');
-const morgan =  require('morgan');
+const morgan = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { conectDatabase } = require('./src/database');
@@ -14,20 +14,24 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors());
 app.use(morgan('tiny'));
 
-app.get('/',(req, res)=>{
-    return res.send("Express currency convertor app");
+app.get('/', (req, res) => {
+    return res.send({
+        success: true,
+        message: 'Express Currency Convertor app'
+    });
 })
 
+app.use("/api/v1", require("./src/routes/index"));
 
-app.use('**', (req,res)=>{
+app.use('**', (req, res) => {
     return res.send({
-       Error: true,
-       message: '404 not found'
+        success: false,
+        message: '404 not found'
     })
 })
 
 const PORT = 3001 || process.env.PORT;
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log(`App is running on port: ${PORT}`);
 })
